@@ -56,6 +56,7 @@ router.get("/get-user", function (req, res, next) {
 
 router.post("/create-user"),
   function (req, res, next) {
+    const firstName = req.body.firstName;
     const lastName = req.body.lastName;
     const email = req.body.email;
     const id = userList.length + 1;
@@ -71,7 +72,7 @@ router.post("/create-user"),
       res
         .send(userList.push(newUser))
         .status(200)
-        .json({ success: `${userList}. Has been added!` });
+        .json({ success: `${userList}. Has been added at this ${dateTime} ` });
     } catch (e) {
       res.status(500).json({ success: false, message: `Error` });
     }
