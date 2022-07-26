@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 router.post( "/post-message",function(req,res,next){
   try{
     const dateTime = new Date().toString()
-    const clientMessage = req.body.message;
+    const clientMessage = req.body;
     res.status(200).json({success:clientMessage,UploadTime:dateTime})
 
   }catch(e){res.status(500).json({success:false,message:"Error"})}
